@@ -1,4 +1,5 @@
 
+//function that scrolls to bottom
 let scrollDown = () => {
     let div = document.getElementsByClassName('messages')[0];
     div.scrollTop = div.scrollHeight;
@@ -7,15 +8,15 @@ let scrollDown = () => {
 
 
 let upload = (e) => {
-    e.preventDefault();
+    e.preventDefault(); //prevents page from refreshing
     
-    let message = document.getElementById('message').value;
+    let message = document.getElementById('message').value; 
 
-    if(!message.trim()) return false;
+    if(!message.trim()) return false; //stops process if message isnt at least 1 character
 
     let xhttp = new XMLHttpRequest();
     
-    document.getElementById('message').value = '';
+    document.getElementById('message').value = ''; // deletes sent input
     
     xhttp.open('POST', `actions/upload.php?message=${message}&user=${user}`, true);
     xhttp.send();
@@ -45,11 +46,12 @@ let fetch = () => {
 
             let scroll = false;
 
+            //Checks if user had scrolled to bottom
             if(message_div.scrollTop + message_div.offsetHeight >= message_div.scrollHeight) {
                 scroll = true;
-                // alert(scroll)
             }
 
+            //Add new messages
             let p;
             for(let i = 0; i < response.length; i++) {
                 div = document.createElement('div');
@@ -76,4 +78,4 @@ let fetch = () => {
 }
 
 
-setInterval(fetch, 1500);
+setInterval(fetch, 1000); //fetches new messages in every 1sec
