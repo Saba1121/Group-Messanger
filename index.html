@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messanger</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+    <script>
+        let start = 0;
+        let user = prompt('Enter Your Name').trim();
+        while(!user) user = prompt('Enter Your Name').trim();
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="messages">
+
+        </div>    
+
+
+        <form class="input">
+        <!-- <div class="input"> -->
+            <input type="text" name="message" id="message" autocomplete="off">
+
+            <input type="submit" value="Send" name="send" id="send">
+        <!-- </div> -->
+        </form>
+    </div>
+
+
+
+
+    <script>
+        document.getElementById('message').focus();
+
+        fetch();
+
+        window.onload = () => setTimeout(scrollDown,300);
+
+        document.getElementsByClassName('input')[0].addEventListener('submit', upload);
+    </script>
+</body>
+</html>
